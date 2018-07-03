@@ -1,7 +1,9 @@
-import React from 'react';
-import {render} from 'react-dom';
-import ClassNames from 'classnames';
-import styles from './index.css';
+import React from 'react'
+import {render} from 'react-dom'
+import ClassNames from 'classnames'
+import styles from './index.css'
+
+import Pallet from './pallet'
 
 class App extends React.Component {
 
@@ -54,6 +56,7 @@ class App extends React.Component {
           {rowComponents}
           </tbody>
         </table>
+        <Pallet colors={['#FF5F5F', '#5F5FFF', '#FFFFFF', '#AFAFFF', '#5F5F5F']} />
       </div>
     );
   }
