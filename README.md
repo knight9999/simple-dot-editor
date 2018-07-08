@@ -7,7 +7,7 @@ $ npm install
 # Build
 
 ```
-$ npx webpack --save-dev
+$ npx webpack 
 ```
 
 # クラスネーム
@@ -24,7 +24,7 @@ $ npm install classnames --save
 
 参考サイト：
 https://qiita.com/kiita312/items/49a1f03445b19cf407b7
-https://qiita.com/maecho/items/e85abecd999257c2ca8c  (ちょっと古い書き方)
+https://qiita.com/maecho/items/e85abecd999257c2ca8c
 https://qiita.com/kiita312/items/d769c85f446994349b52
 
 ```

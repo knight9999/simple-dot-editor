@@ -1,14 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
 import ClassNames from 'classnames'
 import styles from './index.css'
 
-import EditTable from './editTable'
-import Pallet from './pallet'
+import EditTable from './EditTable'
+import Pallet from './Pallet'
 import Actions from './../actions/Actions'
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor() {
     super();
@@ -33,23 +32,17 @@ class App extends React.Component {
   }
 
   render () {
-    const { dispatch } = this.props
     return (
       <div>
         <p> Hello React!</p>
         <p>{this.props.text}</p>
-        <p><button onClick={e=>{e.preventDefault(); dispatch(Actions.action1('hoge'))}}>OK</button></p>
-        <p><button onClick={e=>{e.preventDefault(); dispatch(Actions.action2('gogo'))}}>Good</button></p>
+        <p><button onClick={e=>{e.preventDefault(); this.props.updateMessage('hoge') }}>OK</button></p>
+        <p><button onClick={e=>{e.preventDefault(); this.props.updateMessage('gogo') }}>Good</button></p>
         <EditTable data={this.initialData()}/>
-        <Pallet colors={['#FF5F5F', '#5F5FFF', '#FFFFFF', '#AFAFFF', '#5F5F5F']} />
+        <Pallet colors={['transparent', '#FF5F5F', '#5F5FFF', '#FFFFFF', '#AFAFFF', '#5F5F5F']} select={3} />
       </div>
     );
   }
 
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
-
-export default connect(mapStateToProps)(App)

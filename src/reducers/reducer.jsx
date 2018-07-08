@@ -1,19 +1,9 @@
-const initialState = {
-  text: 'hello'
-}
+import {combineReducers} from 'redux';
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'DUMMY_ACTION1': {
-      return Object.assign({}, state, {text: action.value})
-    }
-    case 'DUMMY_ACTION2': {
-      return Object.assign({}, state, {text: action.value})
-    }
-    default: {
-      return state
-    }
-  }
-}
+import App from './App'
+
+const reducer = combineReducers({
+  App: App
+});
 
 export default reducer
