@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 
-import App from './../components/App'
-import Actions from '../actions/Actions';
+import App from '../components/App'
+import Actions from '../actions/App'
 
 const mapStateToProps = (state) => {
 	return state.App
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = function (dispatch) {
 	return {
 		updateMessage: function (name) {
-			dispatch(Actions.action1(name))
+			dispatch(Actions.updateMessage(name))
 		} 
 	}
 }

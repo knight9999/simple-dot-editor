@@ -4,10 +4,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'DUMMY_ACTION1': {
-      return Object.assign({}, state, {text: action.value})
-    }
-    case 'DUMMY_ACTION2': {
+    case 'UPDATE_MESSAGE': {
       return Object.assign({}, state, {text: action.value})
     }
     default: {
