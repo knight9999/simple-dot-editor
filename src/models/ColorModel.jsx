@@ -1,6 +1,6 @@
 export default class ColorModel {
-  constructor(color, isTransparent) {
-    this.color = color
+  constructor(colorCode, isTransparent) {
+    this.colorCode = colorCode
     this.isTransparent = isTransparent
   }
   

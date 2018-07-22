@@ -14,6 +14,9 @@ const mapDispatchToProps = function (dispatch) {
 		},
 		updateData: function (newData) {
 			dispatch(Actions.updateData(newData))
+		},
+		updateColor: function (i) {
+			dispatch(Actions.updateColor(i))
 		}
 	}
 }

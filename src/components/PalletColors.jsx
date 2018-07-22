@@ -7,32 +7,33 @@ export default class PalletColors extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { select: props.select };
+    // this.state = { select: props.select };
   }
 
-  bgcolor (item) {
-    if (item === 'transparent') {
+  bgcolor (colorModel) {
+    if (colorModel.isTransparent) {
       return {}
     }
     return {
-      'backgroundColor': item
+      'backgroundColor': colorModel.colorCode
     };
   }
 
-  getClassName (item, i) {
+  getClassName (colorModel, i) {
     const className = ClassNames({
       "item": true,
-      "item-border": (i !== this.state.select),
-      "item-border-selected": (i === this.state.select),
-      "item-transparent": (item === 'transparent'),
+      "item-border": (i !== this.props.selectedColor),
+      "item-border-selected": (i === this.props.selectedColor),
+      "item-transparent": colorModel.isTransparent,
       "item-inline": true
     })
     return className
   }
 
   selectColor (ev, i) {
-    this.state.select = i
-    this.setState( Object.assign({}, this.state, { select: i} ) )
+    // this.state.select = i
+    // this.setState( Object.assign({}, this.state, { select: i} ) )
+    this.props.updateColor(i)
   }
 
   render () {
@@ -40,7 +41,7 @@ export default class PalletColors extends React.Component {
     return (
       <div>
         <p>Pallet</p>
-        {colors.map((item,i)=>{return <div key={i} className={this.getClassName(item, i)} style={this.bgcolor(item)} onClick={(ev) => this.selectColor(ev, i)}></div>})}
+        {colors.map((colorModel,i)=>{return <div key={i} className={this.getClassName(colorModel, i)} style={this.bgcolor(colorModel)} onClick={(ev) => {ev.preventDefault(); this.selectColor(ev, i)}}></div>})}
       </div>
     )
   }

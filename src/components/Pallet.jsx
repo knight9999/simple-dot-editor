@@ -6,7 +6,7 @@ export default class Pallet extends React.Component {
   render () {
     return (
       <div>
-        <PalletColors colors={this.props.colors} select={this.props.select} />
+        <PalletColors colors={this.props.colors} selectedColor={this.props.selectedColor} updateColor={(i)=>{this.props.updateColor(i)}} />
       </div>
     )
   }
