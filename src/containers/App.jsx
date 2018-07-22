@@ -11,7 +11,10 @@ const mapDispatchToProps = function (dispatch) {
 	return {
 		updateMessage: function (name) {
 			dispatch(Actions.updateMessage(name))
-		} 
+		},
+		updateData: function (newData) {
+			dispatch(Actions.updateData(newData))
+		}
 	}
 }
 	
