@@ -22,11 +22,18 @@ const initialState = {
   text: 'hello',
   data: initialData(),
   colors: [ new ColorModel('', true),
-            new ColorModel('#FF5F5F', false), 
-            new ColorModel('#5F5FFF', false),
-            new ColorModel('#FFFFFF', false),
-            new ColorModel('#AFAFFF', false),
-            new ColorModel('#5F5F5F', false) 
+            new ColorModel('#000000'), 
+            new ColorModel('#0000FF'), 
+            new ColorModel('#FF0000'), 
+            new ColorModel('#FF00FF'), 
+            new ColorModel('#00FF00'), 
+            new ColorModel('#00FFFF'), 
+            new ColorModel('#FFFF00'), 
+            new ColorModel('#FFFFFF'), 
+            new ColorModel('#FF5F5F'), 
+            new ColorModel('#5F5FFF'),
+            new ColorModel('#AFAFFF'),
+            new ColorModel('#5F5F5F') 
           ],
   selectedColor: 1
 }

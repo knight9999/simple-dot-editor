@@ -1,7 +1,6 @@
 import React from 'react'
 // import {render} from 'react-dom'
 import ClassNames from 'classnames'
-import styles from './index.css'
 
 export default class PalletColors extends React.Component {
 
@@ -36,12 +35,30 @@ export default class PalletColors extends React.Component {
     this.props.updateColor(i)
   }
 
-  render () {
+  renderColors () {
     const colors = this.props.colors
+    const cols = 8
+    const colorGroups = colors.reduce((acc, value, index) => {
+      if (index % cols == 0) {
+        acc.push([])
+      }
+      acc[acc.length-1].push(value)
+      return acc
+    }, [])
+    console.log(colorGroups)
+    return colorGroups.map((colors, j)=>{
+      return <div key={j}>{colors.map((colorModel, i)=>{
+        const n = j * cols + i
+        return <div key={n} className={this.getClassName(colorModel, n)} style={this.bgcolor(colorModel)} onClick={(ev) => {ev.preventDefault(); this.selectColor(ev, n)}}></div>
+      })}</div>
+    })
+  }
+
+  render () {
     return (
       <div>
         <p>Pallet</p>
-        {colors.map((colorModel,i)=>{return <div key={i} className={this.getClassName(colorModel, i)} style={this.bgcolor(colorModel)} onClick={(ev) => {ev.preventDefault(); this.selectColor(ev, i)}}></div>})}
+        {this.renderColors()}
       </div>
     )
   }
