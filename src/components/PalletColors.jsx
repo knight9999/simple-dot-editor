@@ -45,7 +45,6 @@ export default class PalletColors extends React.Component {
       acc[acc.length-1].push(value)
       return acc
     }, [])
-    console.log(colorGroups)
     return colorGroups.map((colors, j)=>{
       return <div key={j}>{colors.map((colorModel, i)=>{
         const n = j * cols + i

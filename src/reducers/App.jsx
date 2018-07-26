@@ -13,7 +13,7 @@ function initialData () {
   ];
   return data.map(row => {
     return row.map(item => {
-      return new ColorModel('#5F5FFF', false);
+      return new ColorModel('', true);
     })
   });
 }
@@ -30,10 +30,14 @@ const initialState = {
             new ColorModel('#00FFFF'), 
             new ColorModel('#FFFF00'), 
             new ColorModel('#FFFFFF'), 
-            new ColorModel('#FF5F5F'), 
-            new ColorModel('#5F5FFF'),
-            new ColorModel('#AFAFFF'),
-            new ColorModel('#5F5F5F') 
+
+            new ColorModel('#7F7F7F'), 
+            new ColorModel('#7F7FFF'), 
+            new ColorModel('#FF7F7F'),
+            new ColorModel('#FF7FFF'),
+            new ColorModel('#7FFF7F'),
+            new ColorModel('#7FFFFF'),
+            new ColorModel('#FFFF7F') 
           ],
   selectedColor: 1
 }

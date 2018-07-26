@@ -4,7 +4,20 @@ import ClassNames from 'classnames'
 
 export default class EditTable extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      mouseDown: props.mouseDown
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({mouseDown: props.mouseDown})
+  }
+
+
   selectCell(ix, iy) {
+    console.log('C'); 
     const colorModel = this.props.color
     const data = this.props.data.map((row, iy1) => {
       return row.map((item, ix1) => {
@@ -22,7 +35,13 @@ export default class EditTable extends React.Component {
       return ([
         <tr key={iy}>
           {row.map((item,ix)=>{
-            return <td key={iy+"-"+ix} onClick={e=>{e.preventDefault(); this.selectCell(ix, iy) }} className={this.getClassName(item)} style={this.bgcolor(item)}></td>; })
+            return <td key={iy+"-"+ix} 
+              // onClick={e=>{e.preventDefault(); this.selectCell(ix, iy) }} 
+              onMouseDown={e=>{e.preventDefault(); this.setState({mouseDown: true}); this.selectCell(ix, iy)}}
+              onMouseUp={e=>{e.preventDefault(); this.setState({mouseDown: false}); this.selectCell(ix, iy)}}
+              onMouseOver={e=>{if (this.state.mouseDown == true) { this.selectCell(ix, iy)}}}
+              className={this.getClassName(item)} 
+              style={this.bgcolor(item)}></td>; })
           }
         </tr>
       ]);

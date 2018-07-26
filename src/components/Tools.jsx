@@ -1,5 +1,5 @@
 import React from 'react'
-import ClearButton from './ClearButton'
+import ClearButton from './Tools/ClearButton'
 
 export default class Tools extends React.Component {
   render () {
