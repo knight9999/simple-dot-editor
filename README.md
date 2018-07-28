@@ -39,3 +39,33 @@ import { Provider } from 'react-redux'
 import reducer from './reducers/reducer'
 
 const store = createStore(reducer)
+
+
+# GoldenLayout
+
+wrapcomponentを次のように
+
+```
+    function wrapComponent(Component, store) {
+      class Wrapped extends React.Component {
+          constructor (container, config) {
+            super(container, config)
+            // console.log(container.glContainer.parent)
+            // http://golden-layout.com/docs/Container.html
+            var tab = container.glContainer.parent.tab
+            tab.element.append($('<div class="messageCounter">123</div>') )
+            console.log(tab.header)
+          }
+          render () {
+              return (
+                  <Provider store={store}>
+                      <Component {...this.props}/>
+                  </Provider>
+              );
+          }
+      }
+      return Wrapped;
+    };
+```
+とすることで、tabオブジェクトやheaderオブジェクトにアクセスすることが出来る。
+

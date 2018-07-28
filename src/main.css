@@ -1,0 +1,27 @@
+.root {
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
+}
+
+.lm_root {
+    height: 100vh;
+}
+
+.goldenLayout {
+    height: 100vh;
+}
+
+.messageCounter{
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	background: #ad5000;
+	color:#fff;
+	font-weight: bold;
+	z-index: 4;
+	padding: 2px 5px;
+	border-radius: 50px;
+}

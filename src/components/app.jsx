@@ -19,8 +19,8 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <div onMouseDown={e=>{console.log("1"); this.setState({mouseDown: true})}}
-           onMouseUp={e=>{console.log("2"); this.setState({mouseDown: false})}}>
+      <div onMouseDown={e=>{this.setState({mouseDown: true})}}
+           onMouseUp={e=>{this.setState({mouseDown: false})}}>
         <p> Hello React!</p>
         <p>{this.props.text}</p>
         <p><button onClick={e=>{e.preventDefault(); this.props.updateMessage('hoge') }}>OK</button></p>

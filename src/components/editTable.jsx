@@ -17,7 +17,6 @@ export default class EditTable extends React.Component {
 
 
   selectCell(ix, iy) {
-    console.log('C'); 
     const colorModel = this.props.color
     const data = this.props.data.map((row, iy1) => {
       return row.map((item, ix1) => {
