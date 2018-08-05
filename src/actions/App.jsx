@@ -1,19 +1,25 @@
 const Actions = {
-  updateMessage(value) {
+  updateMessage (value) {
     return {
       type: 'UPDATE_MESSAGE',
       value
     }
   },
-  updateData(value) {
+  updateData (value) {
     return {
       type: 'UPDATE_DATA',
       value
     }
   },
-  updateColor(value) {
+  updateColor (value) {
     return {
       type: 'UPDATE_COLOR',
+      value
+    }
+  },
+  activeApp (value) {
+    return {
+      type: 'ACTIVE_APP',
       value
     }
   }

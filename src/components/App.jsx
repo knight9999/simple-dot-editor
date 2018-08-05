@@ -27,8 +27,8 @@ export default class App extends React.Component {
         <p><button onClick={e=>{e.preventDefault(); this.props.updateMessage('gogo') }}>Good</button></p>
         <div>
           <div className="box">
-            <EditTable data={this.props.data} 
-                        updateData={(newData)=>{this.props.updateData(newData)}} 
+            <EditTable data={this.props.dataMap[this.props.dataId]} 
+                        updateData={(newData)=>{this.props.updateData({dataId:this.props.dataId, data:newData})}} 
                         color={this.props.colors[this.props.selectedColor]}
                         mouseDown={this.state.mouseDown} />
             <Pallet colors={this.props.colors} selectedColor={this.props.selectedColor} updateColor={this.props.updateColor} />
@@ -36,8 +36,8 @@ export default class App extends React.Component {
           <div className="box" style={{width: "20px"}}></div>
           <div className="box">
             <Preview />
-            <div style={{height: "20px"}}></div>
-            <Tools color={this.props.colors[this.props.selectedColor]} data={this.props.data} updateData={(newData)=>{this.props.updateData(newData)}} />
+            {/* <div style={{height: "20px"}}></div>
+            <Tools color={this.props.colors[this.props.selectedColor]} data={this.props.dataMap[this.props.dataId]} updateData={(newData)=>{this.props.updateData({dataId:this.props.dataId, data:newData})}} /> */}
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default class ClearButton extends React.Component {
         return colorModel;
       });
     })
-    this.props.updateData(data)
+    this.props.updateData({dataId: this.props.dataId, data: data})
 
   }
   render () {

@@ -19,8 +19,9 @@ function initialData () {
 }
 
 const initialState = {
+  activeApp: "0",
   text: 'hello',
-  data: initialData(),
+  dataMap: {"0":initialData(), "1":initialData()}, 
   colors: [ new ColorModel('', true),
             new ColorModel('#000000'), 
             new ColorModel('#0000FF'), 
@@ -48,10 +49,18 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {text: action.value})
     }
     case 'UPDATE_DATA': {
-      return Object.assign({}, state, {data: action.value})
+      const dataId = action.value.dataId;
+      const newData = action.value.data;
+      const dataMap = state.dataMap;
+      const newDataMap = Object.assign({}, dataMap, {[dataId]: newData});      
+      return Object.assign({}, state, {dataMap: newDataMap})
     }
     case 'UPDATE_COLOR': {
       return Object.assign({}, state, {selectedColor: action.value})
+    }
+    case 'ACTIVE_APP': {
+      console.log(action.value);
+      return Object.assign({}, state, {activeApp: action.value})
     }
     default: {
       return state

@@ -17,6 +17,9 @@ const mapDispatchToProps = function (dispatch) {
 		},
 		updateColor: function (i) {
 			dispatch(Actions.updateColor(i))
+		},
+		activeApp: function (dataId) {
+			dispatch(Actions.activeApp(dataId))
 		}
 	}
 }
